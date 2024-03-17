@@ -1,0 +1,50 @@
+PID TUNE for 200
+
+
+BED PID TUNE FOR 65 BLACK
+#*# [heater_bed]
+#*# pid_kp = 68.023
+#*# pid_ki = 0.937
+#*# pid_kd = 1234.612
+
+BED PID TUNE FOR 65 PEI
+#*# [heater_bed]
+#*# pid_kp = 68.496
+#*# pid_ki = 0.919
+#*# pid_kd = 1276.590
+#*# control = pid
+
+
+BED PID TUNE FOR 110
+#*# [heater_bed]
+#*# control = pid
+#*# pid_kp = 68.474
+#*# pid_ki = 0.618
+#*# pid_kd = 1897.587
+
+
+#[bltouch]                               # enable for BLTouch
+#sensor_pin: ^PB1
+#control_pin: PB0
+#x_offset: 5.35
+#y_offset: 48
+#z_offset: -9.7
+#speed: 3.0
+#stow_on_each_sample: False
+#probe_with_touch_mode: True
+
+
+[temperature_sensor chamber]
+sensor_type: DS18B20
+serial_no: 28-01191efdf8c4
+#   Attached 1-wire devices can be listed using the following Linux command:
+#   ls /sys/bus/w1/devices/28-01191efdf8c4
+#ds18_report_time:
+#   Interval in seconds between readings. Default is 3.0, with a minimum of 1.0
+sensor_mcu: host
+#   The micro-controller to read from. Must be the host_mcu
+min_temp: 10
+max_temp: 120
+
+[mcu host]
+serial: /tmp/klipper_host_mcu
